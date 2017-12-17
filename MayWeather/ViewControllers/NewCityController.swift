@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApiDelegate
 {
@@ -57,6 +58,11 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         return UITableViewCell()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.addNewCity(cityIndex: indexPath.row)
+    }
+    
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
     // SearchBar
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
@@ -86,4 +92,54 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         view.backgroundColor = UIColor(red:0.00, green:0.41, blue:0.75, alpha:0.5)
         return view
     }
-}
+    
+    func addNewCity(cityIndex: Int)
+    {
+        if let cityList = mCities
+        {
+            if let cityId = cityList[cityIndex]["geonameId"].int
+            {
+                if (!self.checkIfCityAlreadyExists(cityId: cityId))
+                {
+                    let city = City(context: PersistenceService.context)
+                    
+                    city.id = Int32(cityId)
+                    city.city_name = cityList[cityIndex]["name"].stringValue
+                    city.country_name = cityList[cityIndex]["countryName"].stringValue
+                    city.country_code = cityList[cityIndex]["country"].stringValue
+                    city.longitude = cityList[cityIndex]["lng"].stringValue
+                    city.latitude = cityList[cityIndex]["lat"].stringValue
+                    
+                    PersistenceService.saveContext()
+                    navigationController?.popViewController(animated: true)
+                }
+                else
+                {
+                    let alert = AlertManager.getCityAlreadyExistsAlert()
+                    present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func checkIfCityAlreadyExists(cityId: Int) -> Bool
+    {
+        let fetchRequest: NSFetchRequest<City> = NSFetchRequest<City>(entityName: "City")
+        let predicate = NSPredicate(format: "id = %d", cityId)
+        fetchRequest.predicate = predicate
+        
+        var results: [City] = []
+        
+        do
+        {
+            results = try PersistenceService.context.fetch(fetchRequest)
+        }
+        catch
+        {
+            print("error executing fetch request: \(error)")
+        }
+        
+        return (results.count == 0 ? false : true)
+    }
+    
+} //class

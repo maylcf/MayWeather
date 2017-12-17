@@ -43,7 +43,7 @@ class GeonamesApiManager
     func getNameSearchUrl(searchText: String) -> URL?
     {
         let baseUrl = getBaseSearchString(searchText: searchText)
-        //print("Forecast URL = \(baseUrl)")
+        print("NewCityURL = \(baseUrl)")
         return UrlManager.getUrl(text: baseUrl)
     }
 
@@ -51,7 +51,7 @@ class GeonamesApiManager
     {
         let baseUrl = getBaseSearchString(searchText: searchText)
         let completeUrl = baseUrl + "&country=\(countryCode)"
-        //print("Forecast URL = \(completeUrl)")
+        //print("NewCityURL = \(completeUrl)")
         return UrlManager.getUrl(text: completeUrl)
     }
     

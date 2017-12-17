@@ -16,11 +16,11 @@
 		E79850CE1FE62CF800F840C1 /* NewCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850CD1FE62CF800F840C1 /* NewCityController.swift */; };
 		E79850D01FE62D0600F840C1 /* ForecastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850CF1FE62D0600F840C1 /* ForecastController.swift */; };
 		E79850D31FE62D9800F840C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850D21FE62D9800F840C1 /* SwiftyJSON.swift */; };
-		E79850D81FE630EE00F840C1 /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850D61FE630EE00F840C1 /* City+CoreDataClass.swift */; };
-		E79850D91FE630EE00F840C1 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850D71FE630EE00F840C1 /* City+CoreDataProperties.swift */; };
 		E79850DB1FE6315500F840C1 /* GeonamesApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850DA1FE6315500F840C1 /* GeonamesApiManager.swift */; };
 		E79850DE1FE6337700F840C1 /* UrlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850DD1FE6337700F840C1 /* UrlManager.swift */; };
 		E79850E01FE6399B00F840C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850DF1FE6399B00F840C1 /* Extensions.swift */; };
+		E79850E21FE6457B00F840C1 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850E11FE6457B00F840C1 /* PersistenceService.swift */; };
+		E79850E41FE6469200F840C1 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850E31FE6469200F840C1 /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +35,11 @@
 		E79850CD1FE62CF800F840C1 /* NewCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCityController.swift; sourceTree = "<group>"; };
 		E79850CF1FE62D0600F840C1 /* ForecastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastController.swift; sourceTree = "<group>"; };
 		E79850D21FE62D9800F840C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		E79850D61FE630EE00F840C1 /* City+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E79850D71FE630EE00F840C1 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E79850DA1FE6315500F840C1 /* GeonamesApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeonamesApiManager.swift; sourceTree = "<group>"; };
 		E79850DD1FE6337700F840C1 /* UrlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlManager.swift; sourceTree = "<group>"; };
 		E79850DF1FE6399B00F840C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E79850E11FE6457B00F840C1 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		E79850E31FE6469200F840C1 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,8 @@
 				E79850D21FE62D9800F840C1 /* SwiftyJSON.swift */,
 				E79850B51FE6275B00F840C1 /* AppDelegate.swift */,
 				E79850DF1FE6399B00F840C1 /* Extensions.swift */,
+				E79850E11FE6457B00F840C1 /* PersistenceService.swift */,
+				E79850E31FE6469200F840C1 /* AlertManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -117,8 +119,6 @@
 		E79850D51FE630BA00F840C1 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				E79850D61FE630EE00F840C1 /* City+CoreDataClass.swift */,
-				E79850D71FE630EE00F840C1 /* City+CoreDataProperties.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -196,14 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E79850BE1FE6275B00F840C1 /* MayWeather.xcdatamodeld in Sources */,
+				E79850E21FE6457B00F840C1 /* PersistenceService.swift in Sources */,
 				E79850CE1FE62CF800F840C1 /* NewCityController.swift in Sources */,
 				E79850CC1FE62CEB00F840C1 /* CityListController.swift in Sources */,
 				E79850DE1FE6337700F840C1 /* UrlManager.swift in Sources */,
+				E79850E41FE6469200F840C1 /* AlertManager.swift in Sources */,
 				E79850DB1FE6315500F840C1 /* GeonamesApiManager.swift in Sources */,
 				E79850D31FE62D9800F840C1 /* SwiftyJSON.swift in Sources */,
-				E79850D91FE630EE00F840C1 /* City+CoreDataProperties.swift in Sources */,
 				E79850B61FE6275B00F840C1 /* AppDelegate.swift in Sources */,
-				E79850D81FE630EE00F840C1 /* City+CoreDataClass.swift in Sources */,
 				E79850E01FE6399B00F840C1 /* Extensions.swift in Sources */,
 				E79850D01FE62D0600F840C1 /* ForecastController.swift in Sources */,
 			);
