@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E743BF941FE6510B00F9AF9C /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF931FE6510B00F9AF9C /* CityManager.swift */; };
+		E743BF961FE7221F00F9AF9C /* OpenWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF951FE7221F00F9AF9C /* OpenWeatherManager.swift */; };
+		E743BF981FE72BE600F9AF9C /* CityCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF971FE72BE600F9AF9C /* CityCellController.swift */; };
+		E743BF9A1FE72BF100F9AF9C /* ForecastCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF991FE72BF100F9AF9C /* ForecastCellController.swift */; };
+		E743BF9D1FE7583100F9AF9C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF9C1FE7583100F9AF9C /* Forecast.swift */; };
 		E79850B61FE6275B00F840C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850B51FE6275B00F840C1 /* AppDelegate.swift */; };
 		E79850BB1FE6275B00F840C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79850B91FE6275B00F840C1 /* Main.storyboard */; };
 		E79850BE1FE6275B00F840C1 /* MayWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E79850BC1FE6275B00F840C1 /* MayWeather.xcdatamodeld */; };
@@ -24,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E743BF931FE6510B00F9AF9C /* CityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
+		E743BF951FE7221F00F9AF9C /* OpenWeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherManager.swift; sourceTree = "<group>"; };
+		E743BF971FE72BE600F9AF9C /* CityCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellController.swift; sourceTree = "<group>"; };
+		E743BF991FE72BF100F9AF9C /* ForecastCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellController.swift; sourceTree = "<group>"; };
+		E743BF9C1FE7583100F9AF9C /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		E79850B21FE6275B00F840C1 /* MayWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MayWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79850B51FE6275B00F840C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E79850BA1FE6275B00F840C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E743BF9B1FE7582500F9AF9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E743BF9C1FE7583100F9AF9C /* Forecast.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E79850A91FE6275A00F840C1 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +90,7 @@
 		E79850B41FE6275B00F840C1 /* MayWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E743BF9B1FE7582500F9AF9C /* Model */,
 				E79850D51FE630BA00F840C1 /* Database */,
 				E79850CA1FE62B7600F840C1 /* ViewControllers */,
 				E79850D41FE62E1B00F840C1 /* CellControllers */,
@@ -98,6 +117,7 @@
 		E79850D11FE62D6500F840C1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E743BF951FE7221F00F9AF9C /* OpenWeatherManager.swift */,
 				E79850DD1FE6337700F840C1 /* UrlManager.swift */,
 				E79850DA1FE6315500F840C1 /* GeonamesApiManager.swift */,
 				E79850D21FE62D9800F840C1 /* SwiftyJSON.swift */,
@@ -112,6 +132,8 @@
 		E79850D41FE62E1B00F840C1 /* CellControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E743BF971FE72BE600F9AF9C /* CityCellController.swift */,
+				E743BF991FE72BF100F9AF9C /* ForecastCellController.swift */,
 			);
 			path = CellControllers;
 			sourceTree = "<group>";
@@ -119,6 +141,7 @@
 		E79850D51FE630BA00F840C1 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				E743BF931FE6510B00F9AF9C /* CityManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -195,16 +218,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E743BF9D1FE7583100F9AF9C /* Forecast.swift in Sources */,
 				E79850BE1FE6275B00F840C1 /* MayWeather.xcdatamodeld in Sources */,
 				E79850E21FE6457B00F840C1 /* PersistenceService.swift in Sources */,
 				E79850CE1FE62CF800F840C1 /* NewCityController.swift in Sources */,
 				E79850CC1FE62CEB00F840C1 /* CityListController.swift in Sources */,
 				E79850DE1FE6337700F840C1 /* UrlManager.swift in Sources */,
 				E79850E41FE6469200F840C1 /* AlertManager.swift in Sources */,
+				E743BF981FE72BE600F9AF9C /* CityCellController.swift in Sources */,
 				E79850DB1FE6315500F840C1 /* GeonamesApiManager.swift in Sources */,
+				E743BF9A1FE72BF100F9AF9C /* ForecastCellController.swift in Sources */,
 				E79850D31FE62D9800F840C1 /* SwiftyJSON.swift in Sources */,
+				E743BF941FE6510B00F9AF9C /* CityManager.swift in Sources */,
 				E79850B61FE6275B00F840C1 /* AppDelegate.swift in Sources */,
 				E79850E01FE6399B00F840C1 /* Extensions.swift in Sources */,
+				E743BF961FE7221F00F9AF9C /* OpenWeatherManager.swift in Sources */,
 				E79850D01FE62D0600F840C1 /* ForecastController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

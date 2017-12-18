@@ -72,11 +72,19 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         self.mGeonamesManager.getCitiesByName(cityName: searchText)
     }
     
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    // GeonamesApiDelegate
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    
     func didFinishWithData(result: [JSON])
     {
         mCities = result
         tableView.reloadData()
     }
+    
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    // Custom Functions
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
     
     func setTableBackground()
     {
@@ -99,18 +107,9 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         {
             if let cityId = cityList[cityIndex]["geonameId"].int
             {
-                if (!self.checkIfCityAlreadyExists(cityId: cityId))
+                if (!CityManager.cityExistsOnDatabase(cityId: cityId))
                 {
-                    let city = City(context: PersistenceService.context)
-                    
-                    city.id = Int32(cityId)
-                    city.city_name = cityList[cityIndex]["name"].stringValue
-                    city.country_name = cityList[cityIndex]["countryName"].stringValue
-                    city.country_code = cityList[cityIndex]["country"].stringValue
-                    city.longitude = cityList[cityIndex]["lng"].stringValue
-                    city.latitude = cityList[cityIndex]["lat"].stringValue
-                    
-                    PersistenceService.saveContext()
+                    CityManager.addNewCity(json: cityList[cityIndex])
                     navigationController?.popViewController(animated: true)
                 }
                 else
