@@ -121,24 +121,4 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         }
     }
     
-    func checkIfCityAlreadyExists(cityId: Int) -> Bool
-    {
-        let fetchRequest: NSFetchRequest<City> = NSFetchRequest<City>(entityName: "City")
-        let predicate = NSPredicate(format: "id = %d", cityId)
-        fetchRequest.predicate = predicate
-        
-        var results: [City] = []
-        
-        do
-        {
-            results = try PersistenceService.context.fetch(fetchRequest)
-        }
-        catch
-        {
-            print("error executing fetch request: \(error)")
-        }
-        
-        return (results.count == 0 ? false : true)
-    }
-    
 } //class

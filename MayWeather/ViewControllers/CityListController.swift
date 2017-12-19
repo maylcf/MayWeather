@@ -12,7 +12,6 @@ import CoreData
 class CityListController: UITableViewController, OpenWeatherDelegate
 {
     var mMyCities : [City]?
-    var mForecast = [Forecast]()
     var mWeatherManager = OpenWeatherManager()
     
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-r=-=-=- //
@@ -61,9 +60,6 @@ class CityListController: UITableViewController, OpenWeatherDelegate
                 cell.setCity(city: city)
                 return cell
             }
-                    
-//            cell.textLabel?.text = myCitiesList[indexPath.row].city_name
-//            cell.detailTextLabel?.text = myCitiesList[indexPath.row].country_name
         }
         
         return UITableViewCell()
@@ -84,7 +80,6 @@ class CityListController: UITableViewController, OpenWeatherDelegate
     func weatherSearchDidFinishWith(result: JSON, rowIndex: IndexPath)
     {
         let forecast = Forecast(json: result)
-        mForecast.insert(forecast, at: rowIndex.row)
         
         if let cell = self.tableView.cellForRow(at: rowIndex) as? CityCellController
         {
