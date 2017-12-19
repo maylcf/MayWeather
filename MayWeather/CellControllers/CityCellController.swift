@@ -24,7 +24,7 @@ class CityCellController: UITableViewCell
         mCountryName.textColor = UIColor.white
     }
     
-    func setWeather(forecast: Forecast)
+    func setWeather(forecast: CurrentForecast)
     {
         mWeatherIcon.image = forecast.getIconImage()
         mTemperature.text = forecast.getTemperature()

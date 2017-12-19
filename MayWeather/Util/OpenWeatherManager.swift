@@ -17,31 +17,35 @@ class OpenWeatherManager
     // Methods
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
     
-    func getCurrentWeather(cityName: String, rowIndex: IndexPath)
+    func getWeeklyForecast(lat: String?, lon: String?)
     {
-        let baseURL = "http://api.openweathermap.org/data/2.5/weather"
-        let filters = "?q=\(cityName)&appid=\(apiKey)&units=\(unitSystem)"
-        let strUrl = baseURL + filters
-        print(strUrl)
-        
-        if let myUrl = URL(string: strUrl)
+        if let latitude = lat, let longitude = lon
         {
-            DispatchQueue.main.async
+            let urlString = "http://api.openweathermap.org/data/2.5/forecast/daily?"
+            + "lat=\(latitude)&lon=\(longitude)"
+            + "&mode=json&units=metric&cnt=7&APPID=acebdb4548ced12a28df4ccf585c3466"
+        
+            print("\nForecast URL = \(urlString)")
+            
+            if let url = URL(string: urlString)
             {
-                do
-                {
-                    let dataFromUrl = try String(contentsOf: myUrl, encoding: String.Encoding.utf8)
-                    let data = dataFromUrl.data(using: .utf8)!
-                    let json = JSON(data)
-                    
-                    DispatchQueue.main.async
+                DispatchQueue.main.async
+                    {
+                        do
                         {
-                            self.delegate?.weatherSearchDidFinishWith(result: json, rowIndex: rowIndex)
-                    }
-                }
-                catch
-                {
-                    print(error)
+                            let dataFromUrl = try String(contentsOf: url, encoding: String.Encoding.utf8)
+                            let data = dataFromUrl.data(using: .utf8)!
+                            let json = JSON(data)
+                            
+                            DispatchQueue.main.async
+                                {
+                                    self.delegate?.weatherSearchDidFinishWith(result: json, rowIndex: nil)
+                            }
+                        }
+                        catch
+                        {
+                            print(error)
+                        }
                 }
             }
         }
@@ -76,6 +80,36 @@ class OpenWeatherManager
                             print(error)
                         }
                 }
+            }
+        }
+    }
+    
+    func getCurrentWeather(cityName: String, rowIndex: IndexPath)
+    {
+        let baseURL = "http://api.openweathermap.org/data/2.5/weather"
+        let filters = "?q=\(cityName)&appid=\(apiKey)&units=\(unitSystem)"
+        let strUrl = baseURL + filters
+        print(strUrl)
+        
+        if let myUrl = URL(string: strUrl)
+        {
+            DispatchQueue.main.async
+                {
+                    do
+                    {
+                        let dataFromUrl = try String(contentsOf: myUrl, encoding: String.Encoding.utf8)
+                        let data = dataFromUrl.data(using: .utf8)!
+                        let json = JSON(data)
+                        
+                        DispatchQueue.main.async
+                            {
+                                self.delegate?.weatherSearchDidFinishWith(result: json, rowIndex: rowIndex)
+                        }
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
             }
         }
     }
@@ -170,5 +204,5 @@ class OpenWeatherManager
 
 protocol OpenWeatherDelegate
 {
-    func weatherSearchDidFinishWith(result : JSON, rowIndex: IndexPath);
+    func weatherSearchDidFinishWith(result : JSON, rowIndex: IndexPath?);
 }

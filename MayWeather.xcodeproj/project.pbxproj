@@ -12,6 +12,9 @@
 		E743BF981FE72BE600F9AF9C /* CityCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF971FE72BE600F9AF9C /* CityCellController.swift */; };
 		E743BF9A1FE72BF100F9AF9C /* ForecastCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF991FE72BF100F9AF9C /* ForecastCellController.swift */; };
 		E743BF9D1FE7583100F9AF9C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF9C1FE7583100F9AF9C /* Forecast.swift */; };
+		E743BF9F1FE8C64000F9AF9C /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BF9E1FE8C64000F9AF9C /* DailyForecast.swift */; };
+		E743BFA11FE8C68200F9AF9C /* CurrentForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BFA01FE8C68200F9AF9C /* CurrentForecast.swift */; };
+		E743BFA31FE8D5A600F9AF9C /* DateHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E743BFA21FE8D5A600F9AF9C /* DateHandle.swift */; };
 		E79850B61FE6275B00F840C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79850B51FE6275B00F840C1 /* AppDelegate.swift */; };
 		E79850BB1FE6275B00F840C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79850B91FE6275B00F840C1 /* Main.storyboard */; };
 		E79850BE1FE6275B00F840C1 /* MayWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E79850BC1FE6275B00F840C1 /* MayWeather.xcdatamodeld */; };
@@ -34,6 +37,9 @@
 		E743BF971FE72BE600F9AF9C /* CityCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellController.swift; sourceTree = "<group>"; };
 		E743BF991FE72BF100F9AF9C /* ForecastCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellController.swift; sourceTree = "<group>"; };
 		E743BF9C1FE7583100F9AF9C /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		E743BF9E1FE8C64000F9AF9C /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		E743BFA01FE8C68200F9AF9C /* CurrentForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecast.swift; sourceTree = "<group>"; };
+		E743BFA21FE8D5A600F9AF9C /* DateHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHandle.swift; sourceTree = "<group>"; };
 		E79850B21FE6275B00F840C1 /* MayWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MayWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79850B51FE6275B00F840C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E79850BA1FE6275B00F840C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				E743BF9C1FE7583100F9AF9C /* Forecast.swift */,
+				E743BF9E1FE8C64000F9AF9C /* DailyForecast.swift */,
+				E743BFA01FE8C68200F9AF9C /* CurrentForecast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 		E79850D11FE62D6500F840C1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E743BFA21FE8D5A600F9AF9C /* DateHandle.swift */,
 				E743BF951FE7221F00F9AF9C /* OpenWeatherManager.swift */,
 				E79850DD1FE6337700F840C1 /* UrlManager.swift */,
 				E79850DA1FE6315500F840C1 /* GeonamesApiManager.swift */,
@@ -218,9 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E743BFA31FE8D5A600F9AF9C /* DateHandle.swift in Sources */,
+				E743BF9F1FE8C64000F9AF9C /* DailyForecast.swift in Sources */,
 				E743BF9D1FE7583100F9AF9C /* Forecast.swift in Sources */,
 				E79850BE1FE6275B00F840C1 /* MayWeather.xcdatamodeld in Sources */,
 				E79850E21FE6457B00F840C1 /* PersistenceService.swift in Sources */,
+				E743BFA11FE8C68200F9AF9C /* CurrentForecast.swift in Sources */,
 				E79850CE1FE62CF800F840C1 /* NewCityController.swift in Sources */,
 				E79850CC1FE62CEB00F840C1 /* CityListController.swift in Sources */,
 				E79850DE1FE6337700F840C1 /* UrlManager.swift in Sources */,

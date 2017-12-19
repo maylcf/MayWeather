@@ -14,23 +14,10 @@ class Forecast
     var countryName: String?
     var weatherDescription: String?
     var weatherIconCode: String?
-    var temperature: Int?
-    var timeStamp: Int?
+    //var temperature: Int?
+    var timeStamp: Double?
     
-    init(json: JSON)
-    {
-        cityName = json["name"].string
-        countryName = json["name"].string
-        temperature = json["main"]["temp"].int
-        timeStamp = json["dt"].int
-        weatherIconCode = json["weather"][0]["icon"].string
-        weatherDescription = json["weather"][0]["description"].string
-    }
-    
-    func getTemperature() -> String
-    {
-        return (temperature != nil ? "\(temperature!)°C" : "" )
-    }
+    init() { }
     
     func getIconImage() -> UIImage?
     {

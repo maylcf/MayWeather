@@ -77,13 +77,35 @@ class CityListController: UITableViewController, OpenWeatherDelegate
     // Delegate
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
 
-    func weatherSearchDidFinishWith(result: JSON, rowIndex: IndexPath)
+    func weatherSearchDidFinishWith(result: JSON, rowIndex: IndexPath?)
     {
-        let forecast = Forecast(json: result)
-        
-        if let cell = self.tableView.cellForRow(at: rowIndex) as? CityCellController
+        if let rowIndex = rowIndex
         {
-            cell.setWeather(forecast: forecast)
+            let forecast = CurrentForecast(json: result)
+            
+            if let cell = self.tableView.cellForRow(at: rowIndex) as? CityCellController
+            {
+                cell.setWeather(forecast: forecast)
+            }
+        }
+    }
+    
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    // Transition
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "WeeklyForecast"
+        {
+            if let vc = segue.destination as? ForecastController
+            {
+                if let cities = mMyCities, let index = self.tableView.indexPathForSelectedRow?.row
+                {
+                    vc.mCity = cities[index]
+                }
+            }
+            
         }
     }
     
