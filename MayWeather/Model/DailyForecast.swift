@@ -26,11 +26,11 @@ class DailyForecast: Forecast
     
     func getMaxTemp() -> String
     {
-        return (maxTemp != nil ? "\(maxTemp!)°C" : "" )
+        return (maxTemp != nil ? "\(maxTemp!)°" : "" )
     }
     
     func getMinTemp() -> String
     {
-        return (minTemp != nil ? "\(minTemp!)°C" : "" )
+        return (minTemp != nil ? "\(minTemp!)°" : "" )
     }
 }

@@ -26,6 +26,6 @@ class CurrentForecast: Forecast
     
     func getTemperature() -> String
     {
-        return (temperature != nil ? "\(temperature!)°C" : "" )
+        return (temperature != nil ? "\(temperature!)°" : "" )
     }
 }

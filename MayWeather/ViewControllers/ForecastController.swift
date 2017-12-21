@@ -23,6 +23,7 @@ class ForecastController: UITableViewController, OpenWeatherDelegate
     {
         super.viewDidLoad()
         setTableBackground()
+        self.title = mCity?.city_name
         mWeatherManader.delegate = self
         mWeatherManader.getWeeklyForecast(lat: mCity?.latitude, lon: mCity?.longitude)
     }
