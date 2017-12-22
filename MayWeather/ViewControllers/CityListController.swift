@@ -69,7 +69,7 @@ class CityListController: UITableViewController, OpenWeatherDelegate
     {
         if (editingStyle == UITableViewCellEditingStyle.delete)
         {
-            self.removeCity(cityIndex: indexPath.row)
+            self.removeCity(indexPath: indexPath)
         }
     }
     
@@ -128,23 +128,22 @@ class CityListController: UITableViewController, OpenWeatherDelegate
         self.tableView.reloadData()
     }
     
-    func removeCity(cityIndex: Int)
+    func removeCity(indexPath: IndexPath)
     {
         if let myCitiesList = mMyCities
         {
-            let city = myCitiesList[cityIndex]
+            let city = myCitiesList[indexPath.row]
             
             let title = "Delete City"
-            let message = "Do you really want to remove '\(String(describing: city.city_name)) - \(String(describing: city.country_name))' from your list?"
+            let message = "Do you really want to remove '\(String(describing: city.city_name!)) - \(String(describing: city.country_name!))' from your list?"
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
             let actionCancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             
             let actionConfirm = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler:
             { action in
-                
                 CityManager.deleteStock(cityId: Int(city.id))
-                self.tableView.reloadData()
+                self.loadCitiesFromDatabase()
             })
             
             alert.addAction(actionCancel)

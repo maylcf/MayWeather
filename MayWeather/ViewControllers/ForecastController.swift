@@ -23,7 +23,7 @@ class ForecastController: UITableViewController, OpenWeatherDelegate
     {
         super.viewDidLoad()
         setTableBackground()
-        self.title = mCity?.city_name
+        setNavigationBarTitle()
         mWeatherManader.delegate = self
         mWeatherManader.getWeeklyForecast(lat: mCity?.latitude, lon: mCity?.longitude)
     }
@@ -89,6 +89,14 @@ class ForecastController: UITableViewController, OpenWeatherDelegate
         return view
     }
     
+    func getTitleColor() -> UIView
+    {
+        let view = UIView()
+        view.backgroundColor = UIColor.red
+        return view
+    }
+    
+    
     func populateArrayOfForecasts(jsonArray: [JSON]?)
     {
         if let jsonArray = jsonArray
@@ -101,5 +109,13 @@ class ForecastController: UITableViewController, OpenWeatherDelegate
                 count = count + 1
             }
         }
+    }
+    
+    func setNavigationBarTitle()
+    {
+        //self.title = mCity?.city_name
+        self.navigationItem.title = mCity?.city_name
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.orange]
+
     }
 }

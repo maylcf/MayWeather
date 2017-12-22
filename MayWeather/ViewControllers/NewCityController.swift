@@ -49,10 +49,12 @@ class NewCityController: UITableViewController, UISearchBarDelegate, GeonamesApi
         if let cities = mCities
         {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "NewCityCell", for: indexPath)
-
+            
+            let detailStr = cities[indexPath.row]["adminName1"].string! + ", " + cities[indexPath.row]["countryName"].string!
+            
             cell.selectedBackgroundView = self.getCellBackgroundColor()
             cell.textLabel?.text = cities[indexPath.row]["name"].string
-            cell.detailTextLabel?.text = cities[indexPath.row]["countryName"].string
+            cell.detailTextLabel?.text = detailStr
             return cell
         }
         return UITableViewCell()

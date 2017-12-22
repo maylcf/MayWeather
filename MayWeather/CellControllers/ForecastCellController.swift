@@ -24,7 +24,7 @@ class ForecastCellController: UITableViewCell
         mWeatherIcon.image = dailyForecast.getIconImage()
         mDayOfWeek.text = DateHandle.getWeekDay(numOfSecs: dailyForecast.timeStamp!)
         mDayOfMonth.text = DateHandle.getLongDate(numOfSecs: dailyForecast.timeStamp!)
-        mWeatherDesc.text = dailyForecast.weatherDescription
+        //mWeatherDesc.text = dailyForecast.weatherDescription
         mMaxTemperature.text = dailyForecast.getMaxTemp()
         mMinTemperature.text = dailyForecast.getMinTemp()
     }
