@@ -58,6 +58,7 @@ class CityListController: UITableViewController, OpenWeatherDelegate
             if let cell = self.tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityCellController
             {
                 cell.setCity(city: city)
+                cell.selectedBackgroundView = self.getCellBackgroundColor()
                 return cell
             }
         }
@@ -112,6 +113,13 @@ class CityListController: UITableViewController, OpenWeatherDelegate
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
     // Custom Functions
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- //
+    
+    func getCellBackgroundColor() -> UIView
+    {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.00, green:0.41, blue:0.75, alpha:0.5)
+        return view
+    }
     
     func setTableBackground()
     {
